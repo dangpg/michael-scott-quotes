@@ -1,0 +1,119 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Michael Scott Quotes",
+    "version": "1.0.0",
+    "description": "Simple node application that serves Michael Scott quotes"
+  },
+  "servers": [
+    {
+      "url": "/v1"
+    }
+  ],
+  "paths": {
+    "/count": {
+      "get": {
+        "summary": "Returns the number of all available quotes.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quotes/{id}": {
+      "get": {
+        "summary": "Returns quote at position {id}.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": "true",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success-single"
+          }
+        }
+      }
+    },
+    "/quotes/all": {
+      "get": {
+        "summary": "Returns all quotes.",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success-array"
+          }
+        }
+      }
+    },
+    "/random": {
+      "get": {
+        "summary": "Returns a single randomly chosen quote.",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success-single"
+          }
+        }
+      }
+    },
+    "/random/{num}": {
+      "get": {
+        "summary": "Returns {num} randomly chosen quotes. Returns all quotes if {num} exceeds the total count.",
+        "parameters": [
+          {
+            "name": "num",
+            "in": "path",
+            "required": "true",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/success-array"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "responses": {
+      "success-single": {
+        "description": "OK",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "success-array": {
+        "description": "OK",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
