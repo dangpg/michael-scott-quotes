@@ -1,6 +1,6 @@
 # Michael Scott Quotes
 
-![screeshot](screenshot.jpg)
+[![screenshot](screenshot.jpg)](https://michael-scott-quote.herokuapp.com)
 
 Simple nodeJS application that serves Michael Scott quotes through an HTTP endpoint. Bundled with a static webpage for demonstration purposes. Uses [Express](https://expressjs.com/) under the hood.
 
