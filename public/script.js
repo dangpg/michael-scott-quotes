@@ -1,7 +1,7 @@
 function getRandomQuote() {
   const quote = document.getElementById("quote");
   const http = new XMLHttpRequest();
-  const url = "http://127.0.0.1:3000/v1/random";
+  const url = "https://michael-scott-quote.herokuapp.com/v1/random";
   http.open("GET", url);
   http.send();
 
