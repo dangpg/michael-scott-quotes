@@ -1,0 +1,57 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: black;
+}
+
+.container {
+  width: 100vw;
+  height: 56.25vw;
+  background-image: url("background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.wrapper {
+  max-width: 50vw;
+  min-width: 50vw;
+  margin: 2em;
+  text-align: center; 
+  color: white;
+  font-size: 2.5vw;
+}
+
+.em {
+  font-style: italic;
+  font-size: 1.75vw;
+  margin: 1em 0;
+}
+
+#quote::before {
+  content: "\201C";
+}
+
+#quote::after {
+  content: "\201D";
+}
+
+.footer {
+  position:absolute;
+  bottom:0;
+  right:0;
+}
+
+.icon-button {
+  margin-bottom: 1em;
+  margin-right: 1em;
+  color: grey;
+  cursor: pointer;
+}

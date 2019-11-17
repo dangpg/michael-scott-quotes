@@ -1,19 +1,28 @@
 require("dotenv").config();
 const express = require("express");
-const app = express();
+const public = express();
+const api = express();
 const router = express.Router();
 const middleware = require("./middleware");
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./swagger.json");
 
-const port = process.env.PORT || 3000;
+const publicPort = process.env.PUBLIC_PORT || 80;
+const apiPort = process.env.API_PORT || 3000;
 
-app.listen(port, () => {
+public.listen(publicPort, () => {
   const timestamp = new Date().toUTCString();
-  console.log(`${timestamp} - Server running on port ${port}`);
+  console.log(`${timestamp} - Public server running on port ${publicPort}`);
 });
 
-app.all("*", (req, res, next) => {
+public.use(express.static("public"));
+
+api.listen(apiPort, () => {
+  const timestamp = new Date().toUTCString();
+  console.log(`${timestamp} - API server running on port ${apiPort}`);
+});
+
+api.all("*", (req, res, next) => {
   res.set("Access-Control-Allow-Origin", "*");
   next();
 });
@@ -23,7 +32,7 @@ router.get("/random/:num", middleware.getNumRandomQuotes);
 router.get("/quotes/:id", middleware.getQuotes);
 router.get("/count", middleware.getNumQuotes);
 
-app.get("/", function(req, res) {
+api.get("/", function(req, res) {
   res.send(
     `Welcome to the Michael Scott HTTP API. Please refer to 
     <a href="http://github.com/dangpg/micheal-scott-quotes">http://github.com/dangpg/micheal-scott-quotes</a> 
@@ -32,11 +41,11 @@ app.get("/", function(req, res) {
   );
 });
 
-app.use("/v1", (req, res, next) => {
+api.use("/v1", (req, res, next) => {
   const timestamp = new Date().toUTCString();
   console.log(`${timestamp} - Request to ${req.path}`);
   next();
 });
 
-app.use("/v1/swagger", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.use("/v1", router);
+api.use("/v1/swagger", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+api.use("/v1", router);

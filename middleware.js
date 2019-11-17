@@ -4,7 +4,7 @@ const utils = require("./utils");
 const middleware = {
   getRandomQuote: function(req, res) {
     const randomQuote = utils.getRandomItem(quotes);
-    return res.json(randomQuote);
+    return res.send(randomQuote);
   },
 
   getNumRandomQuotes: function(req, res) {
@@ -33,7 +33,7 @@ const middleware = {
     if (index > quotes.length - 1) {
       return res.sendStatus(404);
     }
-    return res.json(quotes[req.params.id]);
+    return res.send(quotes[req.params.id]);
   },
 
   getNumQuotes: function(req, res) {

@@ -94,7 +94,7 @@
       "success-single": {
         "description": "OK",
         "content": {
-          "application/json": {
+          "text/html": {
             "schema": {
               "type": "string"
             }

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Michael Scott Quotes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="modal-styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/micromodal/dist/micromodal.min.js"
+    ></script>
+    <script type="text/javascript" src="script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div id="quote"></div>
+        <p class="em">- Michael Scott</p>
+      </div>
+    </div>
+    <div class="footer">
+      <i onclick="getRandomQuote()" class="fa fa-sync-alt icon-button" title="Refresh quote"></i>
+      <i
+        onclick="MicroModal.show('info-modal')"
+        class="fa fa-info-circle icon-button"
+        title="About"
+      ></i>
+    </div>
+
+    <div class="modal micromodal-slide" id="info-modal" aria-hidden="true">
+      <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+        <div
+          class="modal__container"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="info-modal-title"
+        >
+          <header class="modal__header">
+            <h2 class="modal__title" id="info-modal-title">
+              Michael Scott Quotes
+            </h2>
+            <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+          </header>
+          <main class="modal__content" id="info-modal-content">
+            <p>
+              Just a simple frontend page that utilizes the
+              <a id="api-url" target="_blank"
+                >Michael Scott HTTP API<i class="fas fa-external-link-alt"></i>
+              </a>
+              <script>
+                document.getElementById("api-url").href = window.location.origin + ":3000";
+              </script>
+              to display randomly chosen quotes. Visit the respective
+              <a href="https://github.com/dangpg/michael-scott-quotes" target="_blank">
+                GitHub repository <i class="fas fa-external-link-alt"></i>
+              </a>
+              for more information.
+            </p>
+            <p>
+              This modal is powered by
+              <a href="https://micromodal.now.sh/" target="_blank">
+                Micromodal <i class="fas fa-external-link-alt"></i>
+              </a>
+              <br />
+              Image was taken and modified from the
+              <a href="https://theoffice.fandom.com/wiki/Michael_Scott" target="_blank">
+                Office Fandom Wiki<i class="fas fa-external-link-alt"></i>
+              </a>
+            </p>
+          </main>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
