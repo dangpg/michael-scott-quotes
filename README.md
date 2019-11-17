@@ -8,7 +8,7 @@ Visit https://michael-scott-quote.herokuapp.com for a demo.
 
 ## HTTP Endpoints
 
-API reachable under https://michael-scott-quote.herokuapp.com:3000/
+API reachable under https://michael-scott-quote.herokuapp.com/v1
 
 |Route|Description|
 |-----------|-------------|
@@ -18,7 +18,7 @@ API reachable under https://michael-scott-quote.herokuapp.com:3000/
 |`GET /v1/random`|Returns a single randomly chosen quote as text string|
 |`GET /random/{num}`|Returns {num} randomly chosen quotes as JSON array. Returns all quotes if {num} exceeds the total count|
 
-Also comes with a respective Swagger UI: https://michael-scott-quote.herokuapp.com:3000/v1/swagger/
+Also comes with a respective Swagger UI: https://michael-scott-quote.herokuapp.com/v1/swagger/
 
 ## Acknowledgment
 Inspiration taken from the [Ron Swanson quotes API](https://github.com/jamesseanwright/ron-swanson-quotes) - all credits to James Wright.
