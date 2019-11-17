@@ -1,5 +1,5 @@
-const quotes = require("./quotes");
-const utils = require("./utils");
+const quotes = require('./quotes');
+const utils = require('./utils');
 
 const middleware = {
   getRandomQuote: function(req, res) {
@@ -22,7 +22,7 @@ const middleware = {
   },
 
   getQuotes: function(req, res) {
-    if (req.params.id === "all") {
+    if (req.params.id === 'all') {
       return res.json(quotes);
     }
 
