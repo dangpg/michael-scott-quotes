@@ -6,11 +6,11 @@ const middleware = require("./middleware");
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./swagger.json");
 
-const PORT = process.env.API_PORT || 3000;
+const port = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
+app.listen(port, () => {
   const timestamp = new Date().toUTCString();
-  console.log(`${timestamp} - Server running on port ${PORT}`);
+  console.log(`${timestamp} - Server running on port ${port}`);
 });
 
 app.all("*", (req, res, next) => {
